@@ -7,8 +7,6 @@ from config.auth import oauth2_scheme
 from utils.enums import Roles, AuthStatus
 from service.auth import AuthService
 from service.users import UserService
-from service.apartments import ApartmentService
-from service.houses import HouseService
 
 # User and Auth
 def get_user_repository(db: Session = Depends(get_session)):
@@ -30,59 +28,3 @@ def get_current_admin(token: str=Depends(oauth2_scheme), user_repository: UserRe
 
 def get_user_service(user_repository: UserRepository = Depends(get_user_repository)) -> UserService:
     return UserService(user_repository=user_repository)
-
-# House
-def get_house_repository(db: Session = Depends(get_session)):
-    return HouseRepository(model=House, session=db)
-
-def get_house_addition_repository(db: Session = Depends(get_session)):
-    return HouseRepository(model=HouseAddition, session=db)
-
-def get_house_image_repository(db: Session = Depends(get_session)):
-    return HouseRepository(model=HouseImage, session=db)
-
-def get_house_addition_association_repository(db: Session = Depends(get_session)):
-    return HouseRepository(model=HouseAdditionAssociation, session=db)
-
-def get_house_service(house_repository: HouseRepository = Depends(get_house_repository),
-                      house_addition_repository: HouseRepository = Depends(get_house_addition_repository),
-                      house_addition_association_repository: HouseRepository = Depends(get_house_addition_association_repository),
-                      house_image_repository: HouseRepository = Depends(get_house_image_repository)):
-    return HouseService(house_repository=house_repository,
-                        house_addition_repository=house_addition_repository,
-                        house_addition_association_repository=house_addition_association_repository,
-                        house_image_repository=house_image_repository)
-
-
-# Apartment
-def get_apartment_repository(db: Session = Depends(get_session)):
-    return ApartmentRepository(model=Apartment, session=db)
-
-def get_apartment_parameter_repository(db: Session = Depends(get_session)):
-    return ApartmentRepository(model=ApartmentParameter, session=db)
-
-def get_apartment_image_repository(db: Session = Depends(get_session)):
-    return ApartmentRepository(model=ApartmentImage, session=db)
-
-def get_apartment_parameter_association_repository(db: Session = Depends(get_session)):
-    return ApartmentRepository(model=ApartmentParameterAssociation, session=db)
-
-def get_apartment_category_repository(db: Session = Depends(get_session)):
-    return ApartmentRepository(model=ApartmentCategory, session=db)
-
-def get_apartment_service(apartment_repository: ApartmentRepository = Depends(get_apartment_repository),
-                          apartment_category_repository: ApartmentRepository = Depends(get_apartment_category_repository),
-                          apartment_parameter_repository: ApartmentRepository = Depends(get_apartment_parameter_repository),
-                          apartment_image_repository: ApartmentRepository = Depends(get_apartment_image_repository),
-                          apartment_parameter_association_repository: ApartmentRepository = Depends(get_apartment_parameter_association_repository)) -> ApartmentService:
-    return ApartmentService(apartment_repository = apartment_repository,
-                            apartment_category_repository=apartment_category_repository,
-                            apartment_parameter_repository=apartment_parameter_repository,
-                            apartment_image_repository=apartment_image_repository,
-                            apartment_parameter_association_repository=apartment_parameter_association_repository)
-
-# Order
-def get_order_repository(db: Session = Depends(get_session)):
-    return OrderRepository(model=Order, session=db)
-
-

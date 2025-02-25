@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from routers import routers
 from starlette.middleware.cors import CORSMiddleware
-app = FastAPI(title="nameless API")
+app = FastAPI(title="Construction-company API")
 
 app.include_router(routers)
 
