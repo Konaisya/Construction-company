@@ -59,8 +59,8 @@ export default function Navbar() {
             </li>
           ) : (
             <li>
-              <Link href="/register" className="hover:text-blue-400 transition">
-                Регистрация
+              <Link href="/auth/login" className="hover:text-blue-400 transition">
+                Войти
               </Link>
             </li>
           )}

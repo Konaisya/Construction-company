@@ -28,7 +28,7 @@ export default function HomePage() {
         </p>
         <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           <Link
-            href="/projects"
+            href="/categories"
             className="mt-6 inline-block bg-blue-600 px-6 py-3 text-lg font-semibold rounded-lg hover:bg-blue-700 transition"
           >
             Смотреть проекты
