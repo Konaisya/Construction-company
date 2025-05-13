@@ -6,6 +6,7 @@ class UserCreate(BaseModel):
     name: Optional[str] = None
     org_name: Optional[str] = None
     role: Optional[str] = None
+    phone: Optional[str] = None
     email: EmailStr
     password: str
 
@@ -27,6 +28,7 @@ class UserUpdate(BaseModel):
     name: Optional[str] = None
     org_name: Optional[str] = None
     email: Optional[EmailStr] = None
+    phone: Optional[str] = None
     password: Optional[str] = None
 
     @field_validator('email')
@@ -64,13 +66,16 @@ class UserLogin(BaseModel):
 class User(BaseModel):
     id: int
     name: str
-    org_name: Optional[str]
+    org_name: str
     role: str
     email: str
+    phone: str
     password: str
 
 class UserResponse(BaseModel):
     id: int
     name: str
-    org_name: Optional[str] = None
+    org_name: str
+    phone: str
     email: str
+    phone: str
