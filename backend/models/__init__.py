@@ -1,4 +1,4 @@
-from .orders import Order
 from .users import User
-from .cities import City
+from .orders import Order
 from .projects import *
+from .cities import City
