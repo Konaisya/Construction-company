@@ -60,7 +60,7 @@ export default function AboutPage() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: index * 0.2, ease: "easeOut" }}
               whileHover={{ scale: 1.05 }}
-              className="flex items-start space-x-4 p-4 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 transition"
+              className="flex items-start space-x-4 p-4 bg-gray-800 rounded-lg shadow-md hover:bg-gray-700 "
             >
               <span className="text-4xl">{feature.icon}</span>
               <div>
